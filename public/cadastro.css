@@ -1,226 +1,123 @@
-* {
-    padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
+
+*{
     margin: 0;
-    box-sizing: border-box; 
-}
-
-body {
-    background-color:#FFFAFA; 
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.6;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    background-color: #FFF; 
-}
-
-.logo img {
-    height: 30px;
-    width: auto;
-}
-
-.nav-bar a {
-    font-weight: bold;
-    font-size: 18px;
-    color: #000080; 
-    text-decoration: none;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
-}
-
-.nav-bar a:hover {
-    color: #FFB90F; 
-    transform: scale(1.1); /
-}
-
-.icons {
-    display: flex;
-    gap: 12px;
-}
-
-.icon-circle {
-    width: 38px;
-    height: 38px;
-    background-color: #000080; 
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    cursor: pointer;
-}
-
-.icon-circle i {
-    font-size: 20px;
-    color: #fff;
-}
-
-.icon-circle:hover {
-    transform: scale(1.2);
-    background-color: var(--color-dark-blue); 
-}
-
-.icon-circle:hover i {
-    color:  #000080;
-}
-
-.capitulo {
-    width: 90%;
-    max-width: 900px;
-    margin: 40px auto;
-}
-
-.capitulo-topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.capitulo-topo h2 {
-    font-size: 26px;
-    font-weight: 600;
-    color:#FFB90F; 
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.nav-btn {
-    width: 40px;
-    height: 40px;
-    background:  #FFB90F; 
-    border: none;
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: bold;
-    color: #FFFAFA;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.nav-btn:hover {
-    transform: scale(1.15);
-    background: #FFFAFA; 
-    color:#000080
-}
-.video-container {
-    display: flex;               
-    justify-content: center;     
-    align-items: center;         
-    height: 67vh;               
-    margin: 30px;                   
-}
-.video-player {
-    width: 80%;                  
-    max-width: 800px;            
-    height: auto;                
-}
-.section-two {
-    display: flex;
-    justify-content: center;
-    background-color: #000080; 
-    padding: 20px 0; 
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
 }
 
 
-.materiais {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center; 
-    gap: 20px; 
+body{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
-    max-width: 1000px; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* coloca tudo um abaixo do outro */
+    justify-content: center;
+    align-items: center;
 }
 
-.materiais h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #FFFAFA; 
-    margin-bottom: 20px; 
-}
-
-.materiais iframe {
-    max-width: 100%;
-    height: 290px;
-    border: none; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 20px; 
-}
-
-.section-three {
-    background-color: #f0ad12;
-    padding: 40px 20px;
-}
-
-.exercicios {
-    max-width: 900px;
-    margin: 0 auto;
+.container{
     background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 14px;
+    width: 100%;
+    overflow: hidden;
+    border: 5px solid #000080;
 }
 
-.exercicios h3 {
-    font-size: 28px;
-    font-weight: bold;
+.titulo{
+    background-color: #000080;
+    padding: 15px;
     text-align: center;
-    margin-bottom: 20px;
-    color: #000080;
+    color: white;
 }
 
-.questao {
-    margin-bottom: 20px;
+.form{
+    padding: 10px;
 }
 
-.questao p {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
+.formulario{
+    margin-bottom: 8px;
+    padding-bottom: 18px;
+    display: relative;
+}
+
+.formulario label{
+    display: inline-block;
     margin-bottom: 10px;
 }
 
-.alternativas {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.alternativas label {
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.alternativas input[type="radio"] {
-    margin-right: 10px;
-}
-
-.submit-btn {
+.formulario input{
     display: block;
     width: 100%;
-    padding: 10px;
-    background-color: #000080;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    border-radius: 14px;
+    padding: 8px;
+    border: 2px solid rgba(202, 198, 198, 0.479);
+    transition: border-color 0.2s ease;
 }
 
-.submit-btn:hover {
-    background-color: #5555f3;
+input:focus{
+    outline: none;
+    border-color:#000080;
+}
+
+button{
+    background-color:#000080; 
+    width: 100%;
+    padding: 8px;
+    color: white;
+    border-radius: 14px;
+    font-size: 15px;
+    border: none;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+        background-color: #FFB90F; /* Cor ao passar o mouse */
+        transform: scale(1.02);
+}
+
+.tela{
+    width: 120px;
+}
+
+.tela a{
+    text-decoration: none;
+    color: #fff;
+}
+
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: aparecerSuave 0.8s ease-out;
+}
+
+.tela{
+    animation: aparecerSuave 0.8s ease-out;
+}
+
+.input-erro {
+    border: 2px solid #dc3545; /* vermelho */
+}
+
+.input-ok {
+    border: 2px solid #28a745; /* verde */
 }

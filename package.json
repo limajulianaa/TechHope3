@@ -1,4 +1,4 @@
-{{
+{
   "name": "techhope3",
   "version": "1.0.0",
   "description": "TechHope WEB",
@@ -14,9 +14,11 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": { 
+  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-  }, 
+    "build": "tsc",             
+    "watch": "tsc --watch"      
+  },
   "dependencies": {
     "firebase": "^12.6.0"
   },

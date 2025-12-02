@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "Capítulo-01: HTML e CSS",
-    "video": "video1.mp4",
+    "video": "../assets/video/video.mp4",
     "material": "https://www.slideshare.net/slideshow/embed_code/key/KoNZz9j4hxAm8w",
     "exercicios": [
 
@@ -10,11 +10,11 @@
         "pergunta": "Qual tag HTML é usada para criar um link?",
         "alternativas":
         
-        [ "a) <img>",
-          "b) <a>",
-          "c) <link>", 
-          "d) <button>", 
-          "e) <p>"]
+        [ "a) img",
+          "b) a",
+          "c) link", 
+          "d) button", 
+          "e) p"]
       },
       {
         "pergunta": "Qual tag HTML é usada para inserir uma imagem?",
@@ -55,7 +55,7 @@
   {
     "id": 2,
     "titulo": "Capítulo-02: Javascript",
-    "video": "",
+    "video": "../assets/video/video.mp4",
     "material": "https://www.example.com/material2",
     "exercicios": [
       {

@@ -1,89 +1,78 @@
+// src/authentication.ts
+import { app } from './firebase'; // Import the initialized Firebase app
+import { db } from './firebase'; // <-- ADD THIS LINE: Import the Firestore instance
 
+// Import necessary Firebase Authentication functions for Email/Password
 import {
-  GoogleAuthProvider,
-  signInWithPopup,
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
-  User,
-  // --- NEW IMPORTS FOR EMAIL/PASSWORD ---
-  createUserWithEmailAndPassword, // Function to register a new user with email and password
-  signInWithEmailAndPassword,   // Function to sign in an existing user with email and password
-  AuthError,                    // Type for Firebase Auth errors (optional, for explicit type-checking)
+  onAuthStateChanged,
+  User, // Type for Firebase User object
+  Auth, // Type for Auth instance
 } from 'firebase/auth';
 
-import { auth } from './firebase';
+// Import Firestore functions
+import { doc, setDoc } from 'firebase/firestore'; // <-- ADD THIS LINE: Import Firestore functions
 
-const googleProvider = new GoogleAuthProvider();
+// Get the Auth instance for your Firebase app
+export const auth: Auth = getAuth(app);
 
-// --- EXISTING GOOGLE SIGN-IN FUNCTIONS ---
-
-export const signInWithGoogle = async (): Promise<User> => {
-  // ... (existing code for Google Sign-In)
+// --- 1. User Registration (Email/Password) ---
+// Now also accepts a displayName to save to Firestore
+export async function registerUser(email: string, password: string, displayName: string): Promise<User | null> {
   try {
-    const result = await signInWithPopup(auth, googleProvider);
-    const user: User = result.user;
-    console.log("Successfully signed in with Google! User UID:", user.uid);
+    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+
+    // <-- ADD THIS BLOCK: Save additional user info to Firestore -->
+    if (user) {
+      await setDoc(doc(db, "users", user.uid), { // Create a document in 'users' collection with UID as ID
+        displayName: displayName,
+        email: user.email,
+        createdAt: new Date(),
+        // Add any other profile fields you need
+      });
+      console.log("User profile saved to Firestore for UID:", user.uid);
+    }
+    // <-- END ADDITION -->
+
+    console.log("User registered:", user);
     return user;
   } catch (error: any) {
-    console.error("Error during Google Sign-In:", error.code, error.message);
+    console.error("Error registering user:", error.message);
     throw error;
   }
-};
+}
 
-export const signOutUser = async (): Promise<void> => {
-  // ... (existing code for signing out)
+// --- 2. User Sign-in (Email/Password) ---
+export async function loginUser(email: string, password: string): Promise<User | null> {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log("User logged in:", userCredential.user);
+    return userCredential.user;
+  } catch (error: any) {
+    console.error("Error logging in:", error.message);
+    throw error;
+  }
+}
+
+// --- 3. User Sign-out ---
+export async function logoutUser(): Promise<void> {
   try {
     await signOut(auth);
-    console.log("User successfully signed out.");
+    console.log("User logged out successfully.");
   } catch (error: any) {
-    console.error("Error signing out:", error.message);
+    console.error("Error logging out:", error.message);
     throw error;
   }
-};
+}
 
-// --- NEW FUNCTIONS FOR EMAIL/PASSWORD AUTHENTICATION ---
-
-/**
- * @description Registers a new user with email and password.
- * @param {string} email The user's email address.
- * @param {string} password The user's chosen password.
- * @returns {Promise<User>} A Promise that resolves with the newly created Firebase User object.
- * @throws {AuthError} If an error occurs during user creation (e.g., email already in use, weak password).
- */
-export const signUpWithEmailAndPassword = async (email: string, password: string): Promise<User> => {
-  try {
-    // This function creates a new user account in Firebase Authentication.
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-
-    const user: User = userCredential.user;
-    console.log("Successfully signed up with email! User UID:", user.uid);
-    return user;
-  } catch (error: any) {
-    // Handle specific errors like 'auth/email-already-in-use', 'auth/weak-password', etc.
-    const authError: AuthError = error; // Cast to AuthError for specific properties
-    console.error("Error during email sign-up:", authError.code, authError.message);
-    throw authError; // Re-throw the error for UI handling
-  }
-};
-
-/**
- * @description Signs in an existing user with email and password.
- * @param {string} email The user's email address.
- * @param {string} password The user's password.
- * @returns {Promise<User>} A Promise that resolves with the signed-in Firebase User object.
- * @throws {AuthError} If an error occurs during sign-in (e.g., wrong password, user not found).
- */
-export const signInWithEmail = async (email: string, password: string): Promise<User> => {
-  try {
-    // This function signs in an existing user.
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
-    const user: User = userCredential.user;
-    console.log("Successfully signed in with email! User UID:", user.uid);
-    return user;
-  } catch (error: any) {
-    // Handle specific errors like 'auth/user-not-found', 'auth/wrong-password', etc.
-    const authError: AuthError = error;
-    console.error("Error during email sign-in:", authError.code, authError.message);
-    throw authError; // Re-throw the error for UI handling
-  }
-};
+// --- 4. Observe Auth State Changes (crucial for knowing if a user is logged in) ---
+export function subscribeToAuthChanges(callback: (user: User | null) => void): () => void {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    callback(user);
+  });
+  return unsubscribe;
+}

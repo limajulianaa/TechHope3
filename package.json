@@ -1,4 +1,4 @@
-{
+{{
   "name": "techhope3",
   "version": "1.0.0",
   "description": "TechHope WEB",
@@ -14,9 +14,9 @@
   "author": "",
   "type": "commonjs",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": { 
+    "test": "echo \"Error: no test specified\" && exit 1",
+  }, 
   "dependencies": {
     "firebase": "^12.6.0"
   },

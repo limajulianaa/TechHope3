@@ -54,9 +54,6 @@ form.addEventListener("submit", function(event) {
     } else if (senha.length < 6) { // Apenas um check de tamanho mínimo aqui
          erroSenha.textContent = "A senha deve ter no mínimo 6 caracteres.";
          formularioValido = false;
-    } else if (!senhaRegex.test(senha)) { // Validação de complexidade (letras e números)
-        erroSenha.textContent = "A senha deve conter letras e números.";
-        formularioValido = false;
     }
 
 

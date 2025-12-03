@@ -5,11 +5,14 @@
     box-sizing: border-box; 
 }
 
+html{
+     animation: aparecerSuave 1.5s ease-out;
+}
+
 body {
     background-color:#FFFAFA; 
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    animation: aparecerSuave 1.5s ease-out;
 }
 
 @keyframes aparecerSuave {
@@ -95,6 +98,7 @@ body {
     width: 90%;
     max-width: 900px;
     margin: 40px auto;
+    margin-top:150px;
 }
 
 .capitulo-topo {

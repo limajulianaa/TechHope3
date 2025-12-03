@@ -1,6 +1,6 @@
 // src/authentication.ts
-import { app } from './firebase'; // Import the initialized Firebase app
-import { db } from './firebase'; // <-- ADD THIS LINE: Import the Firestore instance
+import { app } from './firebase.js'; // <-- ADICIONADO .js
+import { db } from './firebase.js'; // <-- ADICIONADO .js
 // Import necessary Firebase Authentication functions for Email/Password
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, } from 'firebase/auth';
 // Import Firestore functions

@@ -11,10 +11,12 @@ html{
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+html{
+     animation: aparecerSuave 1.5s ease-out;
+}
 body {
     background-color:#000080; 
     line-height: 1.6;
-    animation: aparecerSuave 1.5s ease-out;
 }
 
 .header {
@@ -122,6 +124,12 @@ body {
     background-color: #FFB90F;
     border-radius: 24px;
     border: inset  2px #000080;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.atividades ul:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .atividades li{
@@ -180,6 +188,15 @@ body {
     margin: 42px auto;
     background-color: #000080;
     width: 15%;
+}
+
+button{
+     transition: transform .2s ease, box-shadow .2s ease;
+}
+
+button:hover{
+     transform: translateY(-5px);
+    box-shadow: 0 0 15px #333;
 }
 
 .botao-link p{

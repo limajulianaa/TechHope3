@@ -1,7 +1,6 @@
 // src/cadastro.ts
-
-// Import the registerUser function from your authentication module
-import { registerUser } from './authentication';
+import { registerUser } from './authentication.js'; // <-- ADICIONADO .js
+// ... resto do código
 
 // Get references to the HTML elements
 const registrationForm = document.getElementById('form') as HTMLFormElement;

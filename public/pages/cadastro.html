@@ -11,7 +11,15 @@
         .erro { color: #dc3545; font-size: 0.9em; margin-top: 5px; display: block; }
         .hidden { display: none; }
     </style>
-
+ <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js"
+        }
+      }
+    </script>
 </head>
 
 <body>
@@ -39,9 +47,9 @@
         </form>
     </div>
 
-    <button type="button" class="tela"><a href="../pages/Apresentacao.html">Voltar</a></button>
+    <button type="button" class="tela"><a href="../pages/login.html">Voltar</a></button>
 
-    <script src="../js/cadastro.js"></script>
+   <script type="module" src="../js/cadastro.js"></script>
 
 </body>
 </html>

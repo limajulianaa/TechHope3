@@ -1,6 +1,6 @@
 // src/cadastro.ts
-// Import the registerUser function from your authentication module
-import { registerUser } from './authentication';
+import { registerUser } from './authentication.js'; // <-- ADICIONADO .js
+// ... resto do código
 // Get references to the HTML elements
 const registrationForm = document.getElementById('form');
 const nomeInput = document.getElementById('nome');
@@ -34,7 +34,7 @@ registrationForm.addEventListener('submit', async (event) => {
         if (user) {
             console.log('Usuário cadastrado com sucesso!', user.email);
             // Optionally, redirect the user to a dashboard or success page
-            window.location.href = '../pages/Apresentacao.html'; // Example redirect
+            window.location.href = '../pages/login.html'; // Example redirect
         }
     }
     catch (error) {

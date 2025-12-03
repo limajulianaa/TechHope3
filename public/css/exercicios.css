@@ -281,3 +281,18 @@ body {
     cursor: pointer;
 }
 
+.exercicio {
+    margin-bottom: 25px;
+    padding: 15px;
+    background: #ffffff10; /* levemente translúcido */
+    border: 1px solid #cccccc33;
+    border-radius: 10px;
+}
+.exercicio p {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.exercicio label {
+    display: block;
+    margin: 5px 0;
+}

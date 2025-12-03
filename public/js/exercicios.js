@@ -10,20 +10,22 @@ const capitulos = [
         "pergunta": "Qual tag HTML é usada para criar um link?",
         "alternativas":
         
-        [ "a) img",
-          "b) a",
-          "c) link", 
-          "d) button", 
-          "e) p"]
+        [ "img",
+          "a",
+          "link", 
+          "button", 
+          "p"],
+        
+        "correta": "2"
       },
       {
         "pergunta": "Qual tag HTML é usada para inserir uma imagem?",
         "alternativas": [
-            "a) image", 
-            "b) picture", 
-            "c) img", 
-            "d) src", 
-            "e) href"
+            "image", 
+            "picture", 
+            "img", 
+            "src", 
+            "href"
 
 
         ]
@@ -32,11 +34,11 @@ const capitulos = [
       {
         "pergunta": "Como você altera a cor do texto em CSS?",
         "alternativas": [
-            "a) Color: red",
-            "b) Font-size: Large" , 
-            "c) Display: flex" , 
-            "d) Background-color: red" , 
-            "e) border-color: red"
+            "Color: red",
+            "Font-size: Large" , 
+            "Display: flex" , 
+            "Background-color: red" , 
+            "border-color: red"
         ]
 
       },
@@ -45,22 +47,22 @@ const capitulos = [
         "pergunta": "O que faz a propriedade background-color no CSS?",
         "alternativas": 
         
-        [ "a) Muda a cor da borda do elemento", 
-          "b) Muda a cor do texto",
-          "c) Muda a cor de fundo do elemento", 
-          "d) Muda a cor da fonte", 
-          "e) Muda a cor das letras"]
+        [ "Muda a cor da borda do elemento", 
+          "Muda a cor do texto",
+          "Muda a cor de fundo do elemento", 
+          "Muda a cor da fonte", 
+          "Muda a cor das letras"]
 
       },
       {
         "pergunta":"Como você cria a estrutura de uma lista não ordenada em HTML?",
         "alternativas":
         
-        ["a) ul - li - ul", 
-        " b) ol - li - ol", 
-        "c) div - div", 
-        "d) form - input - button - button - form", 
-        "e)  p - p"]
+        ["ul - li - ul", 
+        "ol - li - ol", 
+        "div - div", 
+        "form - input - button - button - form", 
+        "p - p"]
 
       }
     ]
@@ -75,39 +77,39 @@ const capitulos = [
       {
         "pergunta": "Qual a diferença entre var e let?",
         "alternativas": [
-            "a) let pode ser redeclarado no mesmo escopo",
-            "b) var tem escopo de bloco",
-            "c) let possui escopo de bloco e var de função",
-            "d) Não existe diferença entre eles"]
+            "let pode ser redeclarado no mesmo escopo",
+            "var tem escopo de bloco",
+            "let possui escopo de bloco e var de função",
+            "Não existe diferença entre eles"]
       },
 
       {
          "pergunta": "Qual comando é utilizado para selecionar um elemento pelo id no HTML?",
          "alternativas":[
-                "a) document.getElementid",
-                "b) document.querySelectorAll",
-                "c) document.getElementById",
-                "d) document.selectId"
+                "document.getElementid",
+                "document.querySelectorAll",
+                "document.getElementById",
+                "document.selectId"
          ]
       },
 
       {
         "pergunta": "Qual é a diferença entre == e ===?",
         "alternativas":[
-                "a) Nenhuma diferença",
-                "b) === compara só o valor",
-                "c) == compara só o tipo",
-                "d) === compara o valor e o tipo"   
+                "Nenhuma diferença",
+                "=== compara só o valor",
+                "== compara só o tipo",
+                "=== compara o valor e o tipo"   
         ]
       },
 
       {
         "pergunta": "Qual evento detecta clique?",
         "alternativas": [
-                    "a) onpress",
-                    "b) onchange",
-                    "c) onclick",
-                    "d) onhover"
+                    "onpress",
+                    "onchange",
+                    "onclick",
+                    "onhover"
         ]
       },
 
@@ -115,15 +117,28 @@ const capitulos = [
         "pergunta": "5- Como você soma dois números em JavaScript?",
         "alternativas":[
 
-            "a) let total = a + b;",
-            "b) let total = a & b;",
-            "c) let total = a || b;",
-            "d) let total = a ++ b;"
+            "let total = a + b;",
+            "let total = a & b;",
+            "let total = a || b;",
+            "let total = a ++ b;"
         ]    
       }
 
     ]
   },
+
+{
+   "id": 3,
+    "titulo": "Capítulo-03: Java",
+    "video": "video3.mp4",
+    "material": "https://www.slideshare.net/slideshow/embed_code/key/7fpkN1Qt7coCeb",
+    "exercicios": [
+        {
+            "pergunta": "Qual comando é utilizado para selecionar um elemento pelo id no HTML?"
+            
+        }
+    ]
+}
 ];
 
 let capituloAtual = 0;
@@ -245,7 +260,7 @@ btnEnviar.addEventListener("click", () => {
         );
 
         const alternativas = document.querySelectorAll(
-            `input[name="${questao}"]`
+            `input[name="${questao}"]:`
         );
 
         alternativas.forEach(input => {

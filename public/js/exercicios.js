@@ -66,7 +66,7 @@ const CAPITULOS =
     "id": 2,
     "titulo": "Capítulo-02: JavaScript",
     "video": "../assets/video/video.mp4",
-    "material": "https://www.example.com/material2",
+    "material": "https://www.slideshare.net/slideshow/embed_code/key/31x6mSgsWOXdkf",
     "exercicios": [
       {
         "pergunta": "Qual palavra-chave possui escopo de bloco?",
@@ -134,7 +134,7 @@ const CAPITULOS =
     "id": 4,
     "titulo": "Capítulo-04: Node.js",
     "video": "../assets/video/video.mp4",
-    "material": "",
+    "material": "https://www.slideshare.net/slideshow/embed_code/key/GmbL0hfDfZ7b8V",
     "exercicios": [
       {
         "pergunta": "O Node.js utiliza qual linguagem?",

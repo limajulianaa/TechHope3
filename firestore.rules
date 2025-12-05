@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Regras para a coleção 'users'
+    match /users/{userId} {
+      // Permite que um usuário autenticado CRIE um novo documento na coleção 'users'.
+      // Este documento pode ter QUALQUER ID, mas o código tenta usar o UID do usuário.
+      allow create: if request.auth != null;
+
+      // Permite que um usuário autenticado LEIA ou ATUALIZE APENAS SEU PRÓPRIO DOCUMENTO.
+      // O ID do documento deve ser o mesmo que o UID do usuário que está fazendo a requisição.
+      allow read, update: if request.auth != null && request.auth.uid == userId;
+
+      // Impede a exclusão de documentos, a menos que você adicione uma condição específica.
+      allow delete: if false;
+    }
+
+    // Se você tiver outras coleções, adicione regras para elas aqui.
+    // Exemplo: Permitir leitura pública para uma coleção de posts:
+    // match /posts/{postId} {
+    //   allow read: if true;
+    //   allow write: if false;
+    // }
+  }
+}

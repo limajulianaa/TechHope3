@@ -280,7 +280,9 @@ function embaralhar(array) {
 // =========================
 // VARIÁVEIS
 // =========================
-let capAtual = 0;
+const params = new URLSearchParams(window.location.search);
+const capituloURL = Number(params.get("capitulo")) || 1;
+let capAtual = capituloURL - 1;
 
 const tituloCapitulo = document.getElementById("titulo-capitulo");
 const videoPlayer = document.getElementById("video-player");

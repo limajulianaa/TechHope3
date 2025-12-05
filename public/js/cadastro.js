@@ -1,5 +1,7 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 // src/cadastro.ts
-import { registerUser } from './authentication.js'; // <-- ADICIONADO .js
+const authentication_js_1 = require("./authentication.js"); // <-- ADICIONADO .js
 // ... resto do código
 // Get references to the HTML elements
 const registrationForm = document.getElementById('form');
@@ -30,11 +32,11 @@ registrationForm.addEventListener('submit', async (event) => {
     }
     try {
         // Call the registerUser function from your authentication module
-        const user = await registerUser(email, senha, nome); // Pass name to be saved to Firestore
+        const user = await (0, authentication_js_1.registerUser)(email, senha, nome); // Pass name to be saved to Firestore
         if (user) {
             console.log('Usuário cadastrado com sucesso!', user.email);
             // Optionally, redirect the user to a dashboard or success page
-            window.location.href = '../pages/login.html'; // Example redirect
+            window.location.href = '../pages/Apresentacao.html'; // Example redirect
         }
     }
     catch (error) {

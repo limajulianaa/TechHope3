@@ -1,6 +1,4 @@
-// =========================
-// CAPÍTULOS (SEM FETCH)
-// =========================
+
 const profileIcon = document.querySelector(".profile-icon");
 
 const menu = document.createElement("div");
@@ -17,7 +15,7 @@ profileIcon.addEventListener("click", (e) => {
     menu.classList.toggle("open");
 });
 
-// Fecha se clicar fora
+
 document.addEventListener("click", (e) => {
     if (!profileIcon.contains(e.target)) {
         menu.classList.remove("open");

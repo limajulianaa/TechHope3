@@ -5,30 +5,22 @@ exports.registerUser = registerUser;
 exports.loginUser = loginUser;
 exports.logoutUser = logoutUser;
 exports.subscribeToAuthChanges = subscribeToAuthChanges;
-
-const firebase_js_1 = require("./firebase.js"); 
-const firebase_js_2 = require("./firebase.js"); 
+const firebase_js_1 = require("./firebase.js");
+const firebase_js_2 = require("./firebase.js");
 const auth_1 = require("firebase/auth");
-
-const firestore_1 = require("firebase/firestore"); 
-
+const firestore_1 = require("firebase/firestore");
 exports.auth = (0, auth_1.getAuth)(firebase_js_1.app);
-
 async function registerUser(email, password, displayName) {
     try {
         const userCredential = await (0, auth_1.createUserWithEmailAndPassword)(exports.auth, email, password);
         const user = userCredential.user;
-
         if (user) {
             await (0, firestore_1.setDoc)((0, firestore_1.doc)(firebase_js_2.db, "users", user.uid), {
-                displayName: displayName,
                 email: user.email,
                 createdAt: new Date(),
-
             });
             console.log("User profile saved to Firestore for UID:", user.uid);
         }
-
         console.log("User registered:", user);
         return user;
     }
@@ -48,7 +40,6 @@ async function loginUser(email, password) {
         throw error;
     }
 }
-
 async function logoutUser() {
     try {
         await (0, auth_1.signOut)(exports.auth);
@@ -59,10 +50,10 @@ async function logoutUser() {
         throw error;
     }
 }
-
 function subscribeToAuthChanges(callback) {
     const unsubscribe = (0, auth_1.onAuthStateChanged)(exports.auth, (user) => {
         callback(user);
     });
     return unsubscribe;
 }
+//# sourceMappingURL=authentication.js.map

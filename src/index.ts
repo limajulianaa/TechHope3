@@ -17,7 +17,6 @@ subscribeToAuthChanges(user => {
     if (dashboardSection) dashboardSection.style.display = 'block';
  
   } else {
-t
     console.log("User logged out.");
     if (welcomeMessage) welcomeMessage.textContent = 'Please log in.';
     if (loginSection) loginSection.style.display = 'block';
